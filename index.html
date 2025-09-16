@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Cálculo de Marketing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        [contenteditable="true"]:focus {
+            outline: 2px solid #6366F1;
+            background-color: #EEF2FF;
+        }
+        th, td {
+            white-space: nowrap;
+        }
+        .copy-cell {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 250px; /* Ancho inicial */
+            transition: max-width 0.3s ease-in-out, white-space 0.3s ease-in-out;
+            cursor: pointer;
+        }
+        .copy-cell:focus {
+            white-space: normal;
+            max-width: 500px; /* Ancho expandido */
+            word-wrap: break-word;
+            cursor: text;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-4 sm:p-6">
+
+    <div class="w-full max-w-full mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
+        <div class="p-6 sm:p-8">
+            <img src="https://i.postimg.cc/66zmf2JG/Recurso-2ldpi.png" alt="Logo Distrito Alhambra" class="h-60 w-auto mb-6">
+            <h1 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-2">Plan de Marketing Digital de Eventos - Tribu Art Club</h1>
+            <p class="text-gray-600">Insertar el link de carpeta o imagen de la publicación en la fila LINK CARPETA y el copy redactado como se publicará en redes sociales en la columna COPY DE PUBLICACIÓN.</p>
+        </div>
+        
+        <div class="overflow-x-auto">
+            <table id="event-sheet" class="w-full text-sm text-left text-gray-600">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-100 sticky top-0">
+                    <tr>
+                        <th scope="col" class="px-4 py-3 font-bold">Fecha Evento</th>
+                        <th scope="col" class="px-4 py-3 font-bold">Evento</th>
+                        <th scope="col" class="px-4 py-3 font-bold bg-indigo-50">Fecha Entrega Pieza</th>
+                        <th scope="col" class="px-4 py-3 font-bold bg-indigo-50">Fecha Publicación</th>
+                        <th scope="col" class="px-4 py-3 font-bold bg-green-50">Presupuesto Diario</th>
+                        <th scope="col" class="px-4 py-3 font-bold bg-green-50">Presupuesto Total</th>
+                        <th scope="col" class="px-4 py-3 font-bold">Link Carpeta</th>
+                        <th scope="col" class="px-4 py-3 font-bold">Copy de Publicación</th>
+                        <th scope="col" class="px-4 py-3 font-bold">Lugar</th>
+                        <th scope="col" class="px-4 py-3 font-bold">Tipo</th>
+                        <th scope="col" class="px-4 py-3 font-bold">Hora</th>
+                    </tr>
+                </thead>
+                <tbody>
+                     <tr class="event-row border-b hover:bg-gray-50" data-event-id="impro-y-vida-23-09-2025">
+                        <td class="px-4 py-3 font-medium text-gray-900 event-date">23/09/2025</td>
+                        <td class="px-4 py-3 event-name">Impro y Vida</td>
+                        <td class="px-4 py-3 delivery-date bg-indigo-50"></td>
+                        <td class="px-4 py-3 publish-date bg-indigo-50"></td>
+                        <td class="px-4 py-3 daily-budget bg-green-50"></td>
+                        <td class="px-4 py-3 total-budget bg-green-50 font-medium"></td>
+                        <td class="px-4 py-3 link-cell" contenteditable="true"></td>
+                        <td class="px-4 py-3 copy-cell" contenteditable="true"></td>
+                        <td class="px-4 py-3">TRIBU ART CLUB</td>
+                        <td class="px-4 py-3">Formación</td>
+                        <td class="px-4 py-3">6:30pm - 8:30pm</td>
+                    </tr>
+                    <tr class="event-row border-b hover:bg-gray-50" data-event-id="zewa-27-09-2025">
+                        <td class="px-4 py-3 font-medium text-gray-900 event-date">27/09/2025</td>
+                        <td class="px-4 py-3 event-name">Zewa</td>
+                        <td class="px-4 py-3 delivery-date bg-indigo-50"></td>
+                        <td class="px-4 py-3 publish-date bg-indigo-50"></td>
+                        <td class="px-4 py-3 daily-budget bg-green-50"></td>
+                        <td class="px-4 py-3 total-budget bg-green-50 font-medium"></td>
+                        <td class="px-4 py-3 link-cell" contenteditable="true"></td>
+                        <td class="px-4 py-3 copy-cell" contenteditable="true"></td>
+                        <td class="px-4 py-3">TRIBU ART CLUB</td>
+                        <td class="px-4 py-3">Espectáculo</td>
+                        <td class="px-4 py-3">8:00pm</td>
+                    </tr>
+                    <tr class="event-row border-b hover:bg-gray-50" data-event-id="danza-conciente-30-09-2025">
+                        <td class="px-4 py-3 font-medium text-gray-900 event-date">30/09/2025</td>
+                        <td class="px-4 py-3 event-name">Danza Conciente</td>
+                        <td class="px-4 py-3 delivery-date bg-indigo-50"></td>
+                        <td class="px-4 py-3 publish-date bg-indigo-50"></td>
+                        <td class="px-4 py-3 daily-budget bg-green-50"></td>
+                        <td class="px-4 py-3 total-budget bg-green-50 font-medium"></td>
+                        <td class="px-4 py-3 link-cell" contenteditable="true"></td>
+                        <td class="px-4 py-3 copy-cell" contenteditable="true"></td>
+                        <td class="px-4 py-3">TRIBU ART CLUB</td>
+                        <td class="px-4 py-3">Formación</td>
+                        <td class="px-4 py-3">6:30pm - 8:30pm</td>
+                    </tr>
+                    <tr class="event-row border-b hover:bg-gray-50" data-event-id="show-de-standup-comedy-10-10-2025">
+                        <td class="px-4 py-3 font-medium text-gray-900 event-date">10/10/2025</td>
+                        <td class="px-4 py-3 event-name">Show de StandUp Comedy</td>
+                        <td class="px-4 py-3 delivery-date bg-indigo-50"></td>
+                        <td class="px-4 py-3 publish-date bg-indigo-50"></td>
+                        <td class="px-4 py-3 daily-budget bg-green-50"></td>
+                        <td class="px-4 py-3 total-budget bg-green-50 font-medium"></td>
+                        <td class="px-4 py-3 link-cell" contenteditable="true"></td>
+                        <td class="px-4 py-3 copy-cell" contenteditable="true"></td>
+                        <td class="px-4 py-3">TRIBU ART CLUB</td>
+                        <td class="px-4 py-3">Espectáculo</td>
+                        <td class="px-4 py-3">8:00pm</td>
+                    </tr>
+                     <tr class="event-row border-b hover:bg-gray-50" data-event-id="improteen-11-10-2025">
+                        <td class="px-4 py-3 font-medium text-gray-900 event-date">11/10/2025</td>
+                        <td class="px-4 py-3 event-name">ImproTeen</td>
+                        <td class="px-4 py-3 delivery-date bg-indigo-50"></td>
+                        <td class="px-4 py-3 publish-date bg-indigo-50"></td>
+                        <td class="px-4 py-3 daily-budget bg-green-50"></td>
+                        <td class="px-4 py-3 total-budget bg-green-50 font-medium"></td>
+                        <td class="px-4 py-3 link-cell" contenteditable="true"></td>
+                        <td class="px-4 py-3 copy-cell" contenteditable="true"></td>
+                        <td class="px-4 py-3">TRIBU ART CLUB</td>
+                        <td class="px-4 py-3">Formación</td>
+                        <td class="px-4 py-3">9:00am - 1:00pm</td>
+                    </tr>
+                    <tr class="event-row border-b hover:bg-gray-50" data-event-id="impro-y-vida-20-10-2025">
+                        <td class="px-4 py-3 font-medium text-gray-900 event-date">20/10/2025</td>
+                        <td class="px-4 py-3 event-name">Impro y Vida</td>
+                        <td class="px-4 py-3 delivery-date bg-indigo-50"></td>
+                        <td class="px-4 py-3 publish-date bg-indigo-50"></td>
+                        <td class="px-4 py-3 daily-budget bg-green-50"></td>
+                        <td class="px-4 py-3 total-budget bg-green-50 font-medium"></td>
+                        <td class="px-4 py-3 link-cell" contenteditable="true"></td>
+                        <td class="px-4 py-3 copy-cell" contenteditable="true"></td>
+                        <td class="px-4 py-3">TRIBU ART CLUB</td>
+                        <td class="px-4 py-3">Formación</td>
+                        <td class="px-4 py-3">6:30pm - 8:30pm</td>
+                    </tr>
+                    <tr class="event-row border-b hover:bg-gray-50" data-event-id="impro-25-10-2025">
+                        <td class="px-4 py-3 font-medium text-gray-900 event-date">25/10/2025</td>
+                        <td class="px-4 py-3 event-name">Impro</td>
+                        <td class="px-4 py-3 delivery-date bg-indigo-50"></td>
+                        <td class="px-4 py-3 publish-date bg-indigo-50"></td>
+                        <td class="px-4 py-3 daily-budget bg-green-50"></td>
+                        <td class="px-4 py-3 total-budget bg-green-50 font-medium"></td>
+                        <td class="px-4 py-3 link-cell" contenteditable="true"></td>
+                        <td class="px-4 py-3 copy-cell" contenteditable="true"></td>
+                        <td class="px-4 py-3">PACÍFICO BONSAI</td>
+                        <td class="px-4 py-3">Impro</td>
+                        <td class="px-4 py-3">4:00pm</td>
+                    </tr>
+                     <tr class="event-row border-b hover:bg-gray-50" data-event-id="danza-conciente-27-10-2025">
+                        <td class="px-4 py-3 font-medium text-gray-900 event-date">27/10/2025</td>
+                        <td class="px-4 py-3 event-name">Danza Conciente</td>
+                        <td class="px-4 py-3 delivery-date bg-indigo-50"></td>
+                        <td class="px-4 py-3 publish-date bg-indigo-50"></td>
+                        <td class="px-4 py-3 daily-budget bg-green-50"></td>
+                        <td class="px-4 py-3 total-budget bg-green-50 font-medium"></td>
+                        <td class="px-4 py-3 link-cell" contenteditable="true"></td>
+                        <td class="px-4 py-3 copy-cell" contenteditable="true"></td>
+                        <td class="px-4 py-3">TRIBU ART CLUB</td>
+                        <td class="px-4 py-3">Formación</td>
+                        <td class="px-4 py-3">6:30pm - 8:30pm</td>
+                    </tr>
+                    <tr class="event-row border-b hover:bg-gray-50" data-event-id="impro-terror-26-11-2025">
+                        <td class="px-4 py-3 font-medium text-gray-900 event-date">26/11/2025</td>
+                        <td class="px-4 py-3 event-name">Impro Terror</td>
+                        <td class="px-4 py-3 delivery-date bg-indigo-50"></td>
+                        <td class="px-4 py-3 publish-date bg-indigo-50"></td>
+                        <td class="px-4 py-3 daily-budget bg-green-50"></td>
+                        <td class="px-4 py-3 total-budget bg-green-50 font-medium"></td>
+                        <td class="px-4 py-3 link-cell" contenteditable="true"></td>
+                        <td class="px-4 py-3 copy-cell" contenteditable="true"></td>
+                        <td class="px-4 py-3">TRIBU ART CLUB</td>
+                        <td class="px-4 py-3">Espectáculo</td>
+                        <td class="px-4 py-3">8:00pm</td>
+                    </tr>
+                </tbody>
+                <tfoot class="bg-gray-100">
+                    <tr>
+                        <td colspan="5" class="px-4 py-4 text-right font-bold text-gray-800 text-base">PRESUPUESTO GENERAL TOTAL</td>
+                        <td id="grand-total" class="px-4 py-4 font-bold text-gray-900 text-base bg-green-200"></td>
+                        <td colspan="6"></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+    
+    <script>
+        // Este script calcula las fechas y presupuestos, se ejecuta al cargar la página.
+        document.addEventListener('DOMContentLoaded', () => {
+            const dailyBudget = 4000;
+            const publicationDays = 6;
+            const deliveryDaysBeforeEvent = 9;
+            const publicationDaysBeforeEvent = 6;
+            let grandTotal = 0;
+
+            const formatDate = (date) => {
+                const day = String(date.getDate()).padStart(2, '0');
+                const month = String(date.getMonth() + 1).padStart(2, '0');
+                const year = date.getFullYear();
+                return `${day}/${month}/${year}`;
+            };
+
+            const parseDate = (dateString) => {
+                const parts = dateString.split('/');
+                return new Date(parts[2], parts[1] - 1, parts[0]);
+            };
+            
+            const formatCurrency = (amount) => {
+                return new Intl.NumberFormat('es-CO', {
+                    style: 'currency',
+                    currency: 'COP',
+                    minimumFractionDigits: 0
+                }).format(amount);
+            };
+
+            const rows = document.querySelectorAll('.event-row');
+
+            rows.forEach(row => {
+                const eventDateCell = row.querySelector('.event-date');
+                const eventDateStr = eventDateCell.textContent.trim();
+                
+                if (eventDateStr) {
+                    const eventDate = parseDate(eventDateStr);
+                    const deliveryDateCell = row.querySelector('.delivery-date');
+                    
+                    // Añadir estilo a la celda de fecha de entrega
+                    deliveryDateCell.classList.add('text-red-500', 'font-bold');
+
+                    // Lógica para cambiar la fecha específica
+                    if (eventDateStr === '23/09/2025') {
+                        deliveryDateCell.textContent = '16/09/2025';
+                    } else {
+                        const deliveryDate = new Date(eventDate);
+                        deliveryDate.setDate(deliveryDate.getDate() - deliveryDaysBeforeEvent);
+                        deliveryDateCell.textContent = formatDate(deliveryDate);
+                    }
+
+                    // Calcular fecha de publicación
+                    const publishDate = new Date(eventDate);
+                    publishDate.setDate(publishDate.getDate() - publicationDaysBeforeEvent);
+                    row.querySelector('.publish-date').textContent = formatDate(publishDate);
+                    
+                    // Calcular presupuestos
+                    row.querySelector('.daily-budget').textContent = formatCurrency(dailyBudget);
+                    const totalBudget = dailyBudget * publicationDays;
+                    row.querySelector('.total-budget').textContent = formatCurrency(totalBudget);
+                    grandTotal += totalBudget;
+                }
+            });
+            
+            document.getElementById('grand-total').textContent = formatCurrency(grandTotal);
+        });
+    </script>
+
+    <!-- Firebase SDK y Lógica de Sincronización -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, setDoc, collection, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // --- Configuración de Firebase ---
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : { apiKey: "...", authDomain: "...", projectId: "..." };
+        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+        
+        // --- Autenticación y Sincronización ---
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                console.log("Usuario autenticado:", user.uid);
+                setupRealtimeListeners();
+            }
+        });
+
+        if (initialAuthToken) {
+            signInWithCustomToken(auth, initialAuthToken).catch(error => console.error("Error con token personalizado:", error));
+        } else {
+            signInAnonymously(auth).catch(error => console.error("Error con autenticación anónima:", error));
+        }
+
+        function setupRealtimeListeners() {
+            const eventsCollectionRef = collection(db, `/artifacts/${appId}/public/data/events`);
+
+            // Escuchar cambios en la base de datos y actualizar la tabla
+            onSnapshot(eventsCollectionRef, (snapshot) => {
+                snapshot.docs.forEach((doc) => {
+                    const eventData = doc.data();
+                    const row = document.querySelector(`[data-event-id="${doc.id}"]`);
+                    if (row) {
+                        const linkCell = row.querySelector('.link-cell');
+                        const copyCell = row.querySelector('.copy-cell');
+                        if(document.activeElement !== linkCell) linkCell.textContent = eventData.link || '';
+                        if(document.activeElement !== copyCell) copyCell.textContent = eventData.copy || '';
+                    }
+                });
+            });
+
+            // Guardar cambios en la base de datos cuando se edita una celda
+            document.querySelectorAll('.link-cell, .copy-cell').forEach(cell => {
+                cell.addEventListener('blur', (e) => {
+                    const row = e.target.closest('.event-row');
+                    const eventId = row.dataset.eventId;
+                    const eventName = row.querySelector('.event-name').textContent;
+                    
+                    if (eventId) {
+                        const docRef = doc(db, `/artifacts/${appId}/public/data/events/${eventId}`);
+                        const dataToSave = {
+                            eventName: eventName,
+                            link: row.querySelector('.link-cell').textContent,
+                            copy: row.querySelector('.copy-cell').textContent,
+                        };
+                        setDoc(docRef, dataToSave, { merge: true })
+                            .then(() => console.log(`Datos guardados para ${eventId}`))
+                            .catch(e => console.error("Error al guardar:", e));
+                    }
+                });
+            });
+        }
+    </script>
+</body>
+</html>
